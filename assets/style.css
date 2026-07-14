@@ -1,0 +1,141 @@
+/* HINAROOM「しっぽちゃんはウソつけない」 - ひだまりアルバム(サイドバー版) */
+:root{
+  --bg:#FFFDF7; --ink:#42351F; --brown:#5C4620; --soft:#A08A5F;
+  --chip-bg:#F6EDD9; --chip-ink:#7A6234; --card:#FFFFFF;
+  --shadow:0 6px 18px rgba(122,98,52,.14); --line:#EFE6D2;
+}
+*{ box-sizing:border-box; }
+html{ -webkit-text-size-adjust:100%; }
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Hiragino Maru Gothic ProN","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+  line-height:1.9;
+}
+a{ color:inherit; text-decoration:none; }
+img{ max-width:100%; height:auto; }
+
+/* ヘッダー: サブ=HINAROOM(小)、メイン=しっぽちゃんはウソつけない(大) */
+.site-head{ text-align:center; padding:36px 16px 26px; display:flex; flex-direction:column; gap:2px; }
+.site-sub{ font-size:clamp(22px,3.4vw,28px); letter-spacing:.34em; color:var(--soft); font-weight:700; }
+.site-title{ font-size:clamp(24px,4.6vw,38px); letter-spacing:.06em; color:var(--brown); font-weight:800; line-height:1.4; }
+
+/* 2カラムレイアウト */
+.layout{ display:grid; grid-template-columns:250px 1fr; gap:26px; max-width:1080px; margin:0 auto; padding:0 18px 60px; align-items:start; }
+.main{ min-width:0; }
+
+/* サイドバー */
+.side{ display:flex; flex-direction:column; gap:16px; }
+.box{ background:var(--card); border-radius:16px; box-shadow:var(--shadow); padding:16px 18px; }
+.box h3{ font-size:12.5px; color:var(--brown); letter-spacing:.14em; margin:0 0 10px;
+  border-bottom:2px solid var(--chip-bg); padding-bottom:7px; }
+
+.profile-box{ text-align:center; }
+.pf-img{ width:104px; height:104px; object-fit:cover; border-radius:50%; border:4px solid var(--chip-bg); }
+.pf-name{ font-size:13px; font-weight:700; color:var(--brown); margin:8px 0 2px; }
+.pf-line{ font-size:11.5px; color:var(--soft); line-height:1.7; margin:0 0 8px; }
+.pf-link{ display:inline-block; font-size:11.5px; background:var(--chip-bg); color:var(--chip-ink); border-radius:999px; padding:4px 14px; }
+.pf-link:hover{ background:#EDDFBE; }
+
+.side-search{ width:100%; font-size:13px; padding:9px 14px; border:2px solid var(--line);
+  border-radius:999px; background:var(--bg); color:var(--ink); font-family:inherit; }
+.side-search:focus{ outline:none; border-color:#D9C48E; }
+
+.cat-list{ margin:0; padding:0; list-style:none; }
+.cat-list li a{ display:flex; justify-content:space-between; align-items:baseline;
+  font-size:12.5px; padding:5px 2px; border-bottom:1px dashed var(--line); }
+.cat-list li:last-child a{ border-bottom:none; }
+.cat-list li a:hover{ color:#8A6D3B; }
+.cat-list .n{ font-size:10.5px; color:#B49B6C; font-variant-numeric:tabular-nums; }
+
+/* カレンダー */
+.cal-nav{ display:flex; justify-content:center; align-items:center; gap:14px; margin-bottom:6px; }
+.cal-nav a{ color:var(--chip-ink); font-size:13px; }
+.cal-m{ font-size:12.5px; font-weight:700; color:var(--brown) !important; }
+.cal{ width:100%; border-collapse:collapse; font-size:11.5px; text-align:center;
+  font-variant-numeric:tabular-nums; }
+.cal th{ font-weight:400; color:var(--soft); font-size:10px; padding:3px 0; }
+.cal th.sun{ color:#C98E7E; } .cal th.sat{ color:#7E97B8; }
+.cal td{ padding:3.5px 0; color:#C9BCA2; }
+.cal td a{ display:inline-block; min-width:22px; line-height:22px; border-radius:50%;
+  background:var(--chip-bg); color:var(--chip-ink); font-weight:700; }
+.cal td a:hover{ background:#EDDFBE; }
+
+/* 月別アーカイブ */
+.arch-list details{ border-bottom:1px dashed var(--line); }
+.arch-list details:last-child{ border-bottom:none; }
+.arch-list summary{ font-size:12.5px; padding:6px 2px; cursor:pointer; color:var(--brown); font-weight:700; list-style-position:inside; }
+.arch-m{ display:flex; flex-wrap:wrap; gap:5px; padding:2px 2px 10px; }
+.arch-m a{ font-size:11px; background:var(--chip-bg); color:var(--chip-ink); border-radius:999px; padding:2px 9px; }
+.arch-m a:hover{ background:#EDDFBE; }
+
+.page-h{ font-size:19px; color:var(--brown); letter-spacing:.08em; margin:4px 0 6px; }
+
+/* カード一覧(3列×4段) */
+.grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding-top:8px; }
+.card{ background:var(--card); border-radius:18px; overflow:hidden; box-shadow:var(--shadow);
+  transition:transform .15s ease, box-shadow .15s ease; display:flex; flex-direction:column; }
+.card:hover, .card:focus-visible{ transform:translateY(-3px); box-shadow:0 10px 24px rgba(122,98,52,.2); outline:none; }
+.card img{ width:100%; height:150px; object-fit:cover; display:block; }
+.noimg{ height:150px; display:flex; align-items:center; justify-content:center; font-size:36px;
+  background:linear-gradient(135deg,#FBF3E0,#F3E7C9); }
+.card .tx{ padding:11px 13px 13px; }
+.card .date{ font-size:10px; color:#B49B6C; letter-spacing:.08em; }
+.card .pt{ font-size:13px; font-weight:700; margin:3px 0 0; line-height:1.55; }
+.card .cat, .cat{ display:inline-block; font-size:10px; color:var(--chip-ink); background:var(--chip-bg);
+  border-radius:999px; padding:2px 9px; margin-top:7px; }
+
+/* ページ送り */
+.pager{ display:flex; justify-content:center; align-items:center; gap:18px; margin:32px 0 8px; font-size:13px; color:var(--soft); }
+.pager a{ background:var(--chip-bg); color:var(--chip-ink); border-radius:999px; padding:7px 17px; font-weight:700; }
+.pager a:hover{ background:#EDDFBE; }
+
+/* 記事ページ */
+.post{ background:var(--card); border-radius:22px; box-shadow:var(--shadow); padding:clamp(20px,4vw,40px); }
+.post-meta{ display:flex; align-items:center; gap:12px; }
+.post-meta .date{ font-size:12.5px; color:#B49B6C; letter-spacing:.08em; }
+.post-meta .cat{ margin-top:0; }
+.post-title{ font-size:clamp(18px,3vw,23px); color:var(--brown); line-height:1.6; margin:10px 0 20px; text-wrap:balance; }
+.entry{ font-size:14.5px; }
+.entry p{ margin:0 0 .4em; }
+.entry img{ border-radius:14px; margin:14px 0; display:block; }
+.entry a{ color:#8A6D3B; text-decoration:underline; text-underline-offset:3px; }
+.pf-hero{ width:180px; height:180px; object-fit:cover; border-radius:50%; border:5px solid var(--chip-bg); display:block; margin:0 0 18px; }
+
+/* コメント */
+.comments{ margin-top:24px; }
+.comments h2{ font-size:15px; color:var(--brown); letter-spacing:.06em; }
+.comment{ background:var(--card); border-radius:16px; box-shadow:var(--shadow); padding:15px 19px; margin-bottom:12px; }
+.cm-head{ display:flex; gap:10px; align-items:baseline; font-size:12.5px; }
+.cm-head b{ color:var(--brown); }
+.cm-head span{ color:#B49B6C; font-size:11px; }
+.cm-body{ font-size:13px; margin-top:4px; }
+
+/* 前後記事 */
+.post-nav{ display:flex; justify-content:space-between; gap:14px; margin:24px 2px 0; font-size:12.5px; }
+.post-nav a{ color:var(--chip-ink); background:var(--chip-bg); border-radius:999px; padding:8px 16px;
+  max-width:46%; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.post-nav a:hover{ background:#EDDFBE; }
+.pn-next{ margin-left:auto; }
+
+/* 検索 */
+.search-box{ display:block; width:100%; margin:10px 0 6px; font-size:14.5px;
+  padding:12px 20px; border:2px solid var(--line); border-radius:999px; background:var(--card);
+  color:var(--ink); font-family:inherit; }
+.search-box:focus{ outline:none; border-color:#D9C48E; }
+.nores{ grid-column:1/-1; text-align:center; color:var(--soft); }
+
+/* フッター */
+.site-foot{ text-align:center; font-size:11.5px; color:var(--soft); letter-spacing:.08em; padding:10px 0 40px; }
+
+/* スマホ: 記事が先、サイドバーは後ろ。カードは2列 */
+@media (max-width:760px){
+  .layout{ grid-template-columns:1fr; gap:22px; }
+  .side{ order:2; }
+  .main{ order:1; }
+  .grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
+  .card img,.noimg{ height:130px; }
+  .card .pt{ font-size:12px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .card{ transition:none; }
+}
