@@ -185,5 +185,11 @@
 <footer class="site-foot">
   <p>HINAROOM「しっぽちゃんはウソつけない」 — 2011年から書いてます</p>
 </footer>
+<script>
+// 記事内の写真はクリックで原寸表示
+document.querySelectorAll('.entry img').forEach(function(im){
+  im.addEventListener('click', function(){ window.open(im.src, '_blank'); });
+});
+</script>
 </body>
 </html>

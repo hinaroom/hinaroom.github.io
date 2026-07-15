@@ -97,7 +97,8 @@ img{ max-width:100%; height:auto; }
 .post-title{ font-size:clamp(18px,3vw,23px); color:var(--brown); line-height:1.6; margin:10px 0 20px; text-wrap:balance; }
 .entry{ font-size:14.5px; }
 .entry p{ margin:0 0 .4em; }
-.entry img{ border-radius:14px; margin:14px 0; display:block; }
+.entry img{ border-radius:14px; margin:14px 0; display:block;
+  max-width:min(100%, 400px); max-height:420px; width:auto; height:auto; cursor:zoom-in; }
 .entry a{ color:#8A6D3B; text-decoration:underline; text-underline-offset:3px; }
 .pf-hero{ width:180px; height:180px; object-fit:cover; border-radius:50%; border:5px solid var(--chip-bg); display:block; margin:0 0 18px; }
 
