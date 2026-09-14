@@ -139,8 +139,22 @@ img{ max-width:100%; height:auto; }
 .site-foot{ text-align:center; font-size:11.5px; color:var(--soft); letter-spacing:.08em; padding:10px 0 40px; }
 
 /* スマホ: 記事が先、サイドバーは後ろ。カードは2列 */
+/* スマホ用: 記事の下まで行かなくても検索・カテゴリに届くようにする */
+.m-nav{ display:none; }
+
 @media (max-width:760px){
   .layout{ grid-template-columns:1fr; gap:22px; }
+  .m-nav{ display:block; max-width:1080px; margin:0 auto 18px; padding:0 18px; }
+  .m-nav summary{ background:var(--card); border-radius:999px; box-shadow:var(--shadow);
+    padding:11px 20px; font-size:13px; font-weight:700; color:var(--chip-ink);
+    cursor:pointer; list-style:none; }
+  .m-nav summary::-webkit-details-marker{ display:none; }
+  .m-nav summary::after{ content:"\25BE"; float:right; transition:transform .2s; }
+  .m-nav[open] summary::after{ transform:rotate(180deg); display:inline-block; }
+  .m-nav[open] summary{ border-radius:16px 16px 0 0; box-shadow:none; }
+  .m-nav-in{ background:var(--card); border-radius:0 0 16px 16px; box-shadow:var(--shadow);
+    padding:4px 18px 14px; }
+  .m-nav-in .cat-list{ margin-top:10px; }
   .side{ order:2; }
   .main{ order:1; }
   .grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
